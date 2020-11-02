@@ -1,5 +1,7 @@
 package com.javaDemo.springBootOneToMany.Entities;
 
+import java.util.List;
+
 import javax.persistence.*;
 
 @Entity
@@ -32,6 +34,10 @@ public class Customer {
 	@Column(name="gender")
 	private char gender;	
 	
+	@OneToMany(targetEntity = Address.class, cascade = CascadeType.ALL)
+	@JoinColumn(name = "customerId", referencedColumnName = "id")
+	private List<Address> addresses;
+
 	public Customer(String firstName, String lastName, String email, String password, String phoneNumber,
 			String birthDate, char gender) {
 		super();
@@ -104,5 +110,13 @@ public class Customer {
 
 	public void setGender(char gender) {
 		this.gender = gender;
+	}
+	
+	public List<Address> getAddresses() {
+		return addresses;
+	}
+
+	public void setAddresses(List<Address> addresses) {
+		this.addresses = addresses;
 	}
 }
