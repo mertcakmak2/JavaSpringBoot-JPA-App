@@ -8,5 +8,6 @@ import com.javaDemo.springBootOneToMany.Entities.Customer;
 
 public interface CustomerRepository extends JpaRepository<Customer, Integer> {
 	List<Customer> findByFirstNameContains(String firstName);
+	Customer findByEmail(String email);
 	
 }
