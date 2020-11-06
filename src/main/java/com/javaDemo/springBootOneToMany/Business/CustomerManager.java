@@ -2,6 +2,7 @@ package com.javaDemo.springBootOneToMany.Business;
 
 import java.util.List;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.javaDemo.springBootOneToMany.DataAccess.ICustomerDal;
@@ -43,6 +44,10 @@ public class CustomerManager implements ICustomerService {
 
 	@Override
 	public Customer saveCustomer(Customer customer) {
+		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+		String password = customer.getPassword();
+		String hashPassword = passwordEncoder.encode(password);
+		customer.setPassword(hashPassword);
 		return customerDal.saveCustomer(customer);
 	}
 
