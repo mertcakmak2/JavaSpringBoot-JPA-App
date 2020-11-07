@@ -25,7 +25,8 @@ public class AuthManager implements IAuthService{
 	public String login(AuthRequest authRequest) throws Exception {
 		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 		Customer customer = repository.findByEmail(authRequest.getEmail());
-		if(customer == null )  throw new Exception("Kullanıcı adı ve şifrenizi kontrol ediniz.");
+		if(customer == null )  
+			throw new Exception("Kullanıcı adı ve şifrenizi kontrol ediniz.");
 		boolean isPasswordMatch = passwordEncoder.matches(authRequest.getPassword(), customer.getPassword());
 		if(!isPasswordMatch) throw new Exception("invalid username/password");
 		
