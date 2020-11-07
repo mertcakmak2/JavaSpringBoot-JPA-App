@@ -59,7 +59,10 @@ public class CustomerController {
 		return customerManager.saveCustomers(customers);	//Çalışıyor
 	}
 	
-	
+	@PostMapping("/customer/search")
+	public List<Customer> searchCustomer(@RequestBody Customer customer){
+		return customerManager.searchCustomer(customer);
+	}
 	
 //	private ICustomerService customerService;
 //

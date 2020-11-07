@@ -13,4 +13,5 @@ public interface ICustomerService {
 	Customer updateCustomer(Customer customer);
 	Customer saveCustomer(Customer customer);
 	List<Customer> saveCustomers(List<Customer> customers);
+	List<Customer> searchCustomer(Customer customer);
 }

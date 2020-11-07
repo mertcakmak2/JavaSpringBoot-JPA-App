@@ -56,5 +56,10 @@ public class CustomerManager implements ICustomerService {
 		return customerDal.saveCustomers(customers);
 	}
 
+	@Override
+	public List<Customer> searchCustomer(Customer customer) {
+		return customerDal.searchCustomer(customer);
+	}
+
 	
 }
