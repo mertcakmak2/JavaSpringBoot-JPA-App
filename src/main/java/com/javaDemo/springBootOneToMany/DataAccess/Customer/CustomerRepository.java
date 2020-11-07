@@ -1,4 +1,4 @@
-package com.javaDemo.springBootOneToMany.DataAccess;
+package com.javaDemo.springBootOneToMany.DataAccess.Customer;
 
 import java.util.List;
 

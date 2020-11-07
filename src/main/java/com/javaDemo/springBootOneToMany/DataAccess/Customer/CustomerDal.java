@@ -1,4 +1,4 @@
-package com.javaDemo.springBootOneToMany.DataAccess;
+package com.javaDemo.springBootOneToMany.DataAccess.Customer;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -88,27 +88,27 @@ public class CustomerDal implements ICustomerDal {
 		
 		List<Predicate> searchCriterias = new ArrayList<>();
 
-//		if( (email != "" ) && (email != null) ) {
-//			searchCriterias.add( criteriaBuilder.like( root.get("email"), "%"+email+"%") );
-//		}
-//		if( (birthDate != "" ) && (birthDate != null) ) {
-//			searchCriterias.add( criteriaBuilder.like( root.get("birthDate"), "%"+birthDate+"%") );
-//		}
+		if( (email != "" ) && (email != null) ) {
+			searchCriterias.add( criteriaBuilder.like( root.get("email"), "%"+email+"%") );
+		}
+		if( (birthDate != "" ) && (birthDate != null) ) {
+			searchCriterias.add( criteriaBuilder.like( root.get("birthDate"), "%"+birthDate+"%") );
+		}
 		if( (firstName != "" ) && (firstName != null) ) {
 			searchCriterias.add( criteriaBuilder.like( root.get("firstName"), "%"+firstName+"%") );
 		}
-//		if( gender != ' ' ) {
-//			searchCriterias.add( criteriaBuilder.like( root.get("gender"), "%"+gender+"%") );
-//		}
+		if( gender != ' ' ) {
+			searchCriterias.add( criteriaBuilder.like( root.get("gender"), "%"+gender+"%") );
+		}
 		if(id != 0) {
 			searchCriterias.add( criteriaBuilder.equal( root.get("id"), id) );
 		}
-//		if( (lastName != "" ) && (lastName != null) ) {
-//			searchCriterias.add( criteriaBuilder.like( root.get("lastName"), "%"+lastName+"%") );
-//		}
-//		if( (phoneNumber != "" ) && (phoneNumber != null) ) {
-//			searchCriterias.add( criteriaBuilder.like( root.get("phoneNumber"), "%"+phoneNumber+"%") );
-//		}
+		if( (lastName != "" ) && (lastName != null) ) {
+			searchCriterias.add( criteriaBuilder.like( root.get("lastName"), "%"+lastName+"%") );
+		}
+		if( (phoneNumber != "" ) && (phoneNumber != null) ) {
+			searchCriterias.add( criteriaBuilder.like( root.get("phoneNumber"), "%"+phoneNumber+"%") );
+		}
 		
 		//between kullanımı
 		//searchCriterias.add( criteriaBuilder.between( root.get("birthDate"), startRangeDateOfBirth, endRangeDateOfBirth) );

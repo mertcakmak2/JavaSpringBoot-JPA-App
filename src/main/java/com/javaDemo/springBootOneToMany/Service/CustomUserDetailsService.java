@@ -9,7 +9,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.javaDemo.springBootOneToMany.DataAccess.CustomerRepository;
+import com.javaDemo.springBootOneToMany.DataAccess.Customer.CustomerRepository;
 import com.javaDemo.springBootOneToMany.Entities.AuthRequest;
 import com.javaDemo.springBootOneToMany.Entities.Customer;
 

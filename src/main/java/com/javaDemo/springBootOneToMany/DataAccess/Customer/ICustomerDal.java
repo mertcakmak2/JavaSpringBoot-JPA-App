@@ -1,11 +1,10 @@
-package com.javaDemo.springBootOneToMany.Business;
+package com.javaDemo.springBootOneToMany.DataAccess.Customer;
 
 import java.util.List;
 
 import com.javaDemo.springBootOneToMany.Entities.Customer;
 
-public interface ICustomerService {
-	
+public interface ICustomerDal {
 	List<Customer> getCustomers(); 
 	Customer getCustomerById(int id);
 	List<Customer> containsCustomers(String word);

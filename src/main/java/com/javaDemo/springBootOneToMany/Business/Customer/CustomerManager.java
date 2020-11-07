@@ -1,11 +1,11 @@
-package com.javaDemo.springBootOneToMany.Business;
+package com.javaDemo.springBootOneToMany.Business.Customer;
 
 import java.util.List;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.javaDemo.springBootOneToMany.DataAccess.ICustomerDal;
+import com.javaDemo.springBootOneToMany.DataAccess.Customer.ICustomerDal;
 import com.javaDemo.springBootOneToMany.Entities.Customer;
 
 @Service
@@ -63,3 +63,4 @@ public class CustomerManager implements ICustomerService {
 
 	
 }
+
