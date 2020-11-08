@@ -34,9 +34,13 @@ public class Address implements IEntity {
 	
 	@Column(name="addressTitle")
 	private String addressTitle;
+	
+	//Customer tablosundan bu fielda joinColumn yapıldı.
+	@Column(name="customerId")
+	private String customerId;
 
 	public Address(String firstName, String lastName, String phoneNumber, String province, String district,
-			String neighborhood, String addressDescription, String addressTitle) {
+			String neighborhood, String addressDescription, String addressTitle, String customerId) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -46,8 +50,17 @@ public class Address implements IEntity {
 		this.neighborhood = neighborhood;
 		this.addressDescription = addressDescription;
 		this.addressTitle = addressTitle;
+		this.customerId = customerId;
 	}
 	
+	public String getCustomerId() {
+		return customerId;
+	}
+
+	public void setCustomerId(String customerId) {
+		this.customerId = customerId;
+	}
+
 	public Address() {}
 
 	public int getId() {
@@ -117,8 +130,7 @@ public class Address implements IEntity {
 	public void setAddressTitle(String addressTitle) {
 		this.addressTitle = addressTitle;
 	}
-	
 
-	}
+}
 
 

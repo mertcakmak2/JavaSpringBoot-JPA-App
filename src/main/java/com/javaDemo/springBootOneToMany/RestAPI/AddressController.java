@@ -54,8 +54,6 @@ public class AddressController {
 		return addressManager.searchAddress(address);
 	}
 
-	
-	//Custom Response Object
 //	@GetMapping("/customResponse")
 //	public IEntityResponse customResponse() {
 //		EntitiesResponse<Address> response = new EntitiesResponse<Address>();
