@@ -88,7 +88,7 @@ public class CustomerDal implements ICustomerDal {
 		
 		List<Predicate> searchCriterias = new ArrayList<>();
 
-		if( (email != "" ) && (email != null) ) {
+		if( (email != "" ) && (email != null) ) { 
 			searchCriterias.add( criteriaBuilder.like( root.get("email"), "%"+email+"%") );
 		}
 		if( (birthDate != "" ) && (birthDate != null) ) {
