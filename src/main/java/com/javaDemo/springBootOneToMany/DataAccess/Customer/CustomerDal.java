@@ -81,7 +81,7 @@ public class CustomerDal implements ICustomerDal {
 		String email = customer.getEmail();
 		String birthDate = customer.getBirthDate();
 		String firstName = customer.getFirstName();
-		char gender = customer.getGender();
+//		char gender = customer.getGender();
 		int id = customer.getId();
 		String lastName = customer.getLastName();
 		String phoneNumber = customer.getPhoneNumber();
@@ -97,9 +97,9 @@ public class CustomerDal implements ICustomerDal {
 		if( (firstName != "" ) && (firstName != null) ) {
 			searchCriterias.add( criteriaBuilder.like( root.get("firstName"), "%"+firstName+"%") );
 		}
-		if( gender != ' ' ) {
-			searchCriterias.add( criteriaBuilder.like( root.get("gender"), "%"+gender+"%") );
-		}
+//		if( gender != ' ' ) {
+//			searchCriterias.add( criteriaBuilder.like( root.get("gender"), "%"+gender+"%") );
+//		}
 		if(id != 0) {
 			searchCriterias.add( criteriaBuilder.equal( root.get("id"), id) );
 		}

@@ -1,6 +1,6 @@
 package com.javaDemo.springBootOneToMany.Entities;
 
-public class AuthRequest {
+public class AuthRequest implements IEntity{
 	
 	private String email;
 	private String password;

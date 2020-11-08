@@ -6,7 +6,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name="Customer")
-public class Customer {
+public class Customer implements IEntity {
 	
 	@Id
 	@Column(name="ID")
