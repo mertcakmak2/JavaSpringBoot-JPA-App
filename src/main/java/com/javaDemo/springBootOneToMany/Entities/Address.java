@@ -11,28 +11,28 @@ public class Address implements IEntity {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	
-	@Column(name="firstName")
+	@Column(name="firstName", nullable = false)
 	private String firstName;
 	
-	@Column(name="lastName")
+	@Column(name="lastName", nullable = false)
 	private String lastName;
 	
-	@Column(name="phoneNumber")
+	@Column(name="phoneNumber", nullable = false)
 	private String phoneNumber;
 	
-	@Column(name="province")
+	@Column(name="province", nullable = false)
 	private String province;
 	
-	@Column(name="district")
+	@Column(name="district", nullable = false)
 	private String district;
 	
-	@Column(name="neighborhood")
+	@Column(name="neighborhood", nullable = false)
 	private String neighborhood;
 	
-	@Column(name="addressDescription")
+	@Column(name="addressDescription", nullable = false)
 	private String addressDescription;
 	
-	@Column(name="addressTitle")
+	@Column(name="addressTitle", nullable = false)
 	private String addressTitle;
 	
 	//Customer tablosundan bu fielda joinColumn yapıldı.

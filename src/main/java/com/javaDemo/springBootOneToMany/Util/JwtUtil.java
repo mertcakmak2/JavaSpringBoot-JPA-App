@@ -28,12 +28,10 @@ public class JwtUtil {
         final Claims claims = extractAllClaims(token);
         T claim = claimsResolver.apply(claims);
         return claim;
-//        return claimsResolver.apply(claims);
     }
     private Claims extractAllClaims(String token) {
         Claims claims = Jwts.parser().setSigningKey(secret).parseClaimsJws(token).getBody();
         return claims;
-//        return Jwts.parser().setSigningKey(secret).parseClaimsJws(token).getBody();
     }
 
     private Boolean isTokenExpired(String token) {
@@ -46,7 +44,6 @@ public class JwtUtil {
     }
 
     private String createToken(Map<String, Object> claims, String subject) {
-
     	String token = Jwts.builder().setClaims(claims).setSubject(subject).setIssuedAt(new Date(System.currentTimeMillis()))
                 .setExpiration(new Date(System.currentTimeMillis() + 60 * 60 * 1000))
                 .signWith(SignatureAlgorithm.HS256, secret).compact();

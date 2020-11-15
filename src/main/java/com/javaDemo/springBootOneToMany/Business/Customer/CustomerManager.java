@@ -1,5 +1,7 @@
 package com.javaDemo.springBootOneToMany.Business.Customer;
 
+import java.sql.Timestamp;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -18,49 +20,39 @@ public class CustomerManager implements ICustomerService {
 	}
 
 	@Override
-	public List<Customer> getCustomers() {
-		return customerDal.getCustomers();
+	public List<Customer> getAll() {
+		return customerDal.getAll();
 	}
 
 	@Override
-	public Customer getCustomerById(int id) {
-		return customerDal.getCustomerById(id);
-	}
-
-	@Override
-	public List<Customer> containsCustomers(String word) {
-		return customerDal.containsCustomers(word);
-	}
-
-	@Override
-	public int deleteCustomer(int id) {
-		return customerDal.deleteCustomer(id);
-	}
-
-	@Override
-	public Customer updateCustomer(Customer customer) {
-		return customerDal.updateCustomer(customer);
-	}
-
-	@Override
-	public Customer saveCustomer(Customer customer) {
+	public Customer save(Customer customer) {
 		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+		Date date= new Date();
 		String password = customer.getPassword();
 		String hashPassword = passwordEncoder.encode(password);
 		customer.setPassword(hashPassword);
-		return customerDal.saveCustomer(customer);
+		customer.setCreatedAt(new Timestamp(date.getTime()));
+		return customerDal.save(customer);
 	}
 
 	@Override
-	public List<Customer> saveCustomers(List<Customer> customers) {
-		return customerDal.saveCustomers(customers);
+	public Customer update(Customer customer) {
+		return customerDal.update(customer);
 	}
 
 	@Override
-	public List<Customer> searchCustomer(Customer customer) {
-		return customerDal.searchCustomer(customer);
+	public int delete(int id) {
+		return customerDal.delete(id);
 	}
 
-	
+	@Override
+	public List<Customer> criteriaSearch(Customer customer) {
+		return customerDal.criteriaSearch(customer);
+	}
+
+	@Override
+	public List<Customer> saveAll(List<Customer> customers) {
+		return customerDal.saveAll(customers);
+	}	
 }
 

@@ -26,42 +26,43 @@ public class CustomerController {
 	
 	@GetMapping("/customers")
 	public List<Customer> get() {
-		return customerManager.getCustomers();				//Çalışıyor
+		return customerManager.getAll();
+//		return customerManager.getCustomers();				//Çalışıyor
 	}
 	
-	@GetMapping("/customer/{id}")
-	public Customer getCustomerById(@PathVariable int id) {
-		return customerManager.getCustomerById(id);			//Çalışıyor
-	}
+//	@GetMapping("/customer/{id}")
+//	public Customer getCustomerById(@PathVariable int id) {
+//		return customerManager.getCustomerById(id);			//Çalışıyor
+//	}
 	
-	@GetMapping("/customer/contains/{word}")
-	public List<Customer> containsCustomers(@PathVariable String word) {
-		return customerManager.containsCustomers(word);		//Çalışıyor
-	}
+//	@GetMapping("/customer/contains/{word}")
+//	public List<Customer> containsCustomers(@PathVariable String word) {
+//		return customerManager.containsCustomers(word);		//Çalışıyor
+//	}
 	
 	@GetMapping("/customer/delete/{id}")					
 	public int deleteCustomer(@PathVariable int id) {
-		return customerManager.deleteCustomer(id);			//Çalışıyor
+		return customerManager.delete(id);
 	}
 	
 	@PostMapping("/customer/update")
 	public Customer updateCustomer(@RequestBody Customer customer) {
-		return customerManager.updateCustomer(customer);	//Çalışıyor
+		return customerManager.update(customer);
 	}
 	
 	@PostMapping("/customer/add")
 	public Customer addCustomer(@RequestBody Customer customer) {
-		return customerManager.saveCustomer(customer);		//Çalışıyor
+		return customerManager.save(customer);	
 	}
 	
 	@PostMapping("/customer/addMultiple")					
 	public List<Customer> addCustomers(@RequestBody List<Customer> customers) {
-		return customerManager.saveCustomers(customers);	//Çalışıyor
+		return customerManager.saveAll(customers);
 	}
 	
 	@PostMapping("/customer/search")
-	public List<Customer> searchCustomer(@RequestBody Customer customer){
-		return customerManager.searchCustomer(customer);
+	public List<Customer> criteriaSearch(@RequestBody Customer customer){
+		return customerManager.criteriaSearch(customer);
 	}
 	
 //	private ICustomerService customerService;

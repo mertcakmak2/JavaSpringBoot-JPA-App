@@ -23,7 +23,8 @@ public class AuthController {
 		
 	@PostMapping("/register")
 	public Customer register(@RequestBody Customer customer) {
-		return customerManager.saveCustomer(customer);
+		return customerManager.save(customer);
+//		return customerManager.saveCustomer(customer);
 	}
 	
 	@PostMapping("/login")

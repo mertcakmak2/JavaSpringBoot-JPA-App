@@ -1,8 +1,12 @@
 package com.javaDemo.springBootOneToMany.Entities;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 import javax.persistence.*;
+
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
 
 @Entity
 @Table(name="Customer")
@@ -19,13 +23,13 @@ public class Customer implements IEntity {
 	@Column(name="lastName")
 	private String lastName;
 	
-	@Column(name="email")
+	@Column(name="email", nullable = false, unique = true)
 	private String email;
 	
-	@Column(name="password")
+	@Column(name="password", nullable = false)
 	private String password;
 	
-	@Column(name="phoneNumber")
+	@Column(name="phoneNumber", unique = true)
 	private String phoneNumber;
 	
 	@Column(name="birthDate")
@@ -33,6 +37,14 @@ public class Customer implements IEntity {
 	
 	@Column(name="gender")
 	private char gender;	
+	
+	@CreatedDate
+    @Column(name = "createdAt")
+    private Timestamp createdAt;
+	
+	@LastModifiedDate
+    @Column(name = "updatedAt")
+    private Timestamp updatedAt;
 	
 	@OneToMany(targetEntity = Address.class, cascade = CascadeType.ALL)
 	@JoinColumn(name = "customerId", referencedColumnName = "id")
@@ -112,6 +124,22 @@ public class Customer implements IEntity {
 		this.gender = gender;
 	}
 	
+	public Timestamp getCreatedAt() {
+		return createdAt;
+	}
+
+	public void setCreatedAt(Timestamp createdAt) {
+		this.createdAt = createdAt;
+	}
+
+	public Timestamp getUpdatedAt() {
+		return updatedAt;
+	}
+
+	public void setUpdatedAt(Timestamp updatedAt) {
+		this.updatedAt = updatedAt;
+	}
+
 	public List<Address> getAddresses() {
 		return addresses;
 	}

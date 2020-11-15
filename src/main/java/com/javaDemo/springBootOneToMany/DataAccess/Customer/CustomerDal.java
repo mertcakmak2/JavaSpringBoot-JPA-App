@@ -1,6 +1,8 @@
 package com.javaDemo.springBootOneToMany.DataAccess.Customer;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -23,35 +25,21 @@ public class CustomerDal implements ICustomerDal {
 	@Autowired
 	private CustomerRepository repository;		//JPA veri tabanı işlemleri interface'si
 
-//	@Autowired
-//	public CustomerDal(CustomerRepository repository) {
-//		this.repository = repository;
-//	}
-
 	@Override
-	public List<Customer> getCustomers() {
+	public List<Customer> getAll() {
 		return repository.findAll();
 	}
 
 	@Override
-	public Customer getCustomerById(int id) {
-		return repository.findById(id).orElse(null);
+	public Customer save(Customer customer) {
+		return repository.save(customer);
 	}
 
 	@Override
-	public List<Customer> containsCustomers(String word) {
-		return repository.findByFirstNameContains(word);
-	}
-
-	@Override
-	public int deleteCustomer(int id) {
-		repository.deleteById(id);
-		return id;
-	}
-
-	@Override
-	public Customer updateCustomer(Customer customer) {
+	public Customer update(Customer customer) {
 		Customer existCustomer = repository.findById(customer.getId()).orElse(null);
+		Date date= new Date();
+		existCustomer.setUpdatedAt(new Timestamp(date.getTime()));
 		existCustomer.setEmail(customer.getEmail());
 		existCustomer.setBirthDate(customer.getBirthDate());
 		existCustomer.setFirstName(customer.getFirstName());
@@ -63,17 +51,13 @@ public class CustomerDal implements ICustomerDal {
 	}
 
 	@Override
-	public Customer saveCustomer(Customer customer) {
-		return repository.save(customer);
+	public int delete(int id) {
+		repository.deleteById(id);
+		return id;
 	}
 
 	@Override
-	public List<Customer> saveCustomers(List<Customer> customers) {
-		return repository.saveAll(customers);
-	}
-
-	@Override
-	public List<Customer> searchCustomer(Customer customer) {
+	public List<Customer> criteriaSearch(Customer customer) {
 		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
 		CriteriaQuery<Customer> criteriaQuery = criteriaBuilder.createQuery(Customer.class);
 		Root<Customer> root = criteriaQuery.from(Customer.class);
@@ -121,6 +105,9 @@ public class CustomerDal implements ICustomerDal {
 		return entityManager.createQuery(criteriaQuery).getResultList();
 	}
 
-	
+	@Override
+	public List<Customer> saveAll(List<Customer> customers) {
+		return repository.saveAll(customers);
+	}
 
 }
