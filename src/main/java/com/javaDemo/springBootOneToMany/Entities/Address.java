@@ -7,7 +7,7 @@ import javax.persistence.*;
 public class Address implements IEntity {
 	
 	@Id
-	@Column(name="ID")
+//	@Column(name="ID")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	
@@ -35,12 +35,14 @@ public class Address implements IEntity {
 	@Column(name="addressTitle", nullable = false)
 	private String addressTitle;
 	
-	//Customer tablosundan bu fielda joinColumn yapıldı.
-	@Column(name="customerId")
-	private String customerId;
+//	Customer tablosundan bu fielda joinColumn yapıldı.
+//	@Column(name="customerId")
+//	private String customerId;
+	
+	private int customerId;
 
 	public Address(String firstName, String lastName, String phoneNumber, String province, String district,
-			String neighborhood, String addressDescription, String addressTitle, String customerId) {
+			String neighborhood, String addressDescription, String addressTitle, int customerId) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -53,14 +55,6 @@ public class Address implements IEntity {
 		this.customerId = customerId;
 	}
 	
-	public String getCustomerId() {
-		return customerId;
-	}
-
-	public void setCustomerId(String customerId) {
-		this.customerId = customerId;
-	}
-
 	public Address() {}
 
 	public int getId() {
@@ -129,6 +123,14 @@ public class Address implements IEntity {
 
 	public void setAddressTitle(String addressTitle) {
 		this.addressTitle = addressTitle;
+	}
+	
+	public int getCustomerId() {
+		return customerId;
+	}
+
+	public void setCustomerId(int customerId) {
+		this.customerId = customerId;
 	}
 
 }

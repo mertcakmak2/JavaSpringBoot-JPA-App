@@ -26,20 +26,10 @@ public class CustomerController {
 	
 	@GetMapping("/customers")
 	public List<Customer> get() {
+		System.out.println("get from db");
 		return customerManager.getAll();
-//		return customerManager.getCustomers();				//Çalışıyor
 	}
-	
-//	@GetMapping("/customer/{id}")
-//	public Customer getCustomerById(@PathVariable int id) {
-//		return customerManager.getCustomerById(id);			//Çalışıyor
-//	}
-	
-//	@GetMapping("/customer/contains/{word}")
-//	public List<Customer> containsCustomers(@PathVariable String word) {
-//		return customerManager.containsCustomers(word);		//Çalışıyor
-//	}
-	
+		
 	@GetMapping("/customer/delete/{id}")					
 	public int deleteCustomer(@PathVariable int id) {
 		return customerManager.delete(id);
@@ -64,17 +54,4 @@ public class CustomerController {
 	public List<Customer> criteriaSearch(@RequestBody Customer customer){
 		return customerManager.criteriaSearch(customer);
 	}
-	
-//	private ICustomerService customerService;
-//
-//	@Autowired
-//	public CustomerController(ICustomerService customerService) {
-//		this.customerService = customerService;
-//	}
-//	
-//	@GetMapping("/customers")
-//	@Transactional
-//	public List<Customer> get() {
-//		return this.customerService.getAll();
-//	}
 }

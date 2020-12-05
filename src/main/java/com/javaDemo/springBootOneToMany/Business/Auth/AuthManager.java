@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.javaDemo.springBootOneToMany.DataAccess.Auth.IAuthDal;
 import com.javaDemo.springBootOneToMany.DataAccess.Customer.CustomerRepository;
-import com.javaDemo.springBootOneToMany.Entities.AuthRequest;
+import com.javaDemo.springBootOneToMany.Dto.AuthRequest;
 import com.javaDemo.springBootOneToMany.Entities.Customer;
 
 @Service

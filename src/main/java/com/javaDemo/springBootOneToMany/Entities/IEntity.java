@@ -1,5 +1,5 @@
 package com.javaDemo.springBootOneToMany.Entities;
 
-public interface IEntity {
+public interface IEntity {	
 
 }

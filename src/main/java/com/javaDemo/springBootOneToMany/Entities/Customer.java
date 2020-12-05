@@ -1,6 +1,7 @@
 package com.javaDemo.springBootOneToMany.Entities;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.*;
@@ -13,7 +14,7 @@ import org.springframework.data.annotation.LastModifiedDate;
 public class Customer implements IEntity {
 	
 	@Id
-	@Column(name="ID")
+//	@Column(name="ID")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	
@@ -46,9 +47,13 @@ public class Customer implements IEntity {
     @Column(name = "updatedAt")
     private Timestamp updatedAt;
 	
-	@OneToMany(targetEntity = Address.class, cascade = CascadeType.ALL)
+//	@OneToMany(targetEntity = Address.class, cascade = CascadeType.ALL)
+//	@JoinColumn(name = "customerId", referencedColumnName = "id")
+//	private List<Address> addresses;
+	
+	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name = "customerId", referencedColumnName = "id")
-	private List<Address> addresses;
+	List<Address> addresses = new ArrayList<>();
 
 	public Customer(String firstName, String lastName, String email, String password, String phoneNumber,
 			String birthDate, char gender) {

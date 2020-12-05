@@ -1,4 +1,6 @@
-package com.javaDemo.springBootOneToMany.Entities;
+package com.javaDemo.springBootOneToMany.Dto;
+
+import com.javaDemo.springBootOneToMany.Entities.IEntity;
 
 public class AuthRequest implements IEntity{
 	

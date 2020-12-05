@@ -3,7 +3,7 @@ package com.javaDemo.springBootOneToMany.DataAccess.Auth;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.javaDemo.springBootOneToMany.Entities.AuthRequest;
+import com.javaDemo.springBootOneToMany.Dto.AuthRequest;
 import com.javaDemo.springBootOneToMany.Util.JwtUtil;
 
 @Repository

@@ -30,6 +30,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+		//2
 		auth.userDetailsService(userDetailsService);
 	}
 	
@@ -41,14 +42,19 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Bean(name = BeanIds.AUTHENTICATION_MANAGER)
     @Override
     public AuthenticationManager authenticationManagerBean() throws Exception {
+		//1
         return super.authenticationManagerBean();
     }
 	 
 	@Override
     protected void configure(HttpSecurity http) throws Exception {
+		//3
         http.csrf().disable().authorizeRequests().antMatchers("/api/auth/login")
         		.permitAll().antMatchers("/api/customers")
         		.permitAll().antMatchers("/api/auth/register")
+        		.permitAll().antMatchers("/api/customer/add")
+        		.permitAll().antMatchers("/api/address/add")
+        		.permitAll().antMatchers("/api/customer/addMultiple")
                 .permitAll().anyRequest().authenticated()
                 .and().exceptionHandling().and().sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS);

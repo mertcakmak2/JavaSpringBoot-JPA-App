@@ -18,7 +18,7 @@ import com.javaDemo.springBootOneToMany.Entities.Customer;
 
 @Repository
 public class CustomerDal implements ICustomerDal {
-	
+		
 	@Autowired
 	private EntityManager entityManager;
 	
@@ -96,9 +96,6 @@ public class CustomerDal implements ICustomerDal {
 		
 		//between kullanımı
 		//searchCriterias.add( criteriaBuilder.between( root.get("birthDate"), startRangeDateOfBirth, endRangeDateOfBirth) );
-		
-		//sayısal değer için kullanım
-		//searchCriterias.add( criteriaBuilder.equal( root.get("mobile"), mobile) );
 
 		criteriaQuery.select( root ).where( 
 				criteriaBuilder.and( searchCriterias.toArray(new Predicate[searchCriterias.size()]) ));

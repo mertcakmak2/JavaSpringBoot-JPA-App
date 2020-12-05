@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.javaDemo.springBootOneToMany.Business.Auth.IAuthService;
 import com.javaDemo.springBootOneToMany.Business.Customer.ICustomerService;
-import com.javaDemo.springBootOneToMany.Entities.AuthRequest;
+import com.javaDemo.springBootOneToMany.Dto.AuthRequest;
 import com.javaDemo.springBootOneToMany.Entities.Customer;
 
 @RestController
